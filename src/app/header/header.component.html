@@ -1,0 +1,140 @@
+<div class="header">
+  <div class="header">
+    <div class="logo-container">
+      <div class="header-title">
+        <div class="title-wrapper">
+          <span routerLink="/" class="main-title">uday kumar munasu</span>
+          <span routerLink="/" class="sub-title">Food Corner</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="widgets">
+      <div class="left-container">
+        <ul>
+          <li>
+            <a routerLink="/login">Login</a>
+          </li>
+          <div class="dropdown">
+            <div class="menu-container">
+              <a routerLink="/dashboard">Testy Codeiz</a>
+              <div class="menu">
+                <a routerLink="/profile">Profile</a>
+                <a routerLink="/orders">Orders</a>
+                <a>Logout</a>
+              </div>
+            </div>
+          </div>
+
+          <li>
+            <a routerLink="/cart-page">
+              Cart <span>{{cartQuantity}}</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <!-- <div class="logo-container">
+    <div class="header-title">
+      <div class="title-wrapper" (click)="backToHome()">
+        <span class="navigator-subtitle">Mealth Management </span>
+        <span class="navigator-title">Navigator</span>
+      </div>
+      <div class="header-controls">
+        <div class="toggle dsm-theme-switch ">
+           <input type="checkbox" id="dsm-theme-switch" /> 
+           <label for="dsm-theme-switch" class="toggle-btn"></label>
+        </div>
+        <span class="dashboard-link">something
+          <i class="icons back-arrow"> </i></span>
+      </div>
+    </div>
+    <div class="app-name">
+      <span [innerHtml]="appName"></span>
+    </div>
+
+    <div class="search-wrap">
+      <span class="search-btn">
+        <span class="search-text">
+          <span class="icons search-ico" style="--icon-height-width: 18px">
+          </span> Search</span>
+        <span class="search-btn-hotkey">Ctrl + K</span>
+         <span cla5s="search-btn-hotkey"> Cmd + K</span>
+      </span>
+    </div>
+    <div class="mega-menu-container">
+      <app-megamenu></app-megamenu>
+    </div>
+    <div  class="widgets ">
+      <div class="dropdown">
+        <div class="menu-container">
+          <a routerLink="/dashboard">Testy Codeiz</a>
+          <div class="menu">
+            <a routerLink="/profile">Profile</a>
+            <a routerLink="/orders">Orders</a>
+            <a>Logout</a>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+
+
+
+    <!-- <div class="header">
+  <div class="logo-container">
+    <div class="header-title">
+      <div class="title-wrapper" (click)="backToHome() ">
+        <span class="navigator=subtitle">Mealth Management </span>
+        <span class="navigator-title">Navigator</span>
+      </div>
+      <div class="header-controls" *ngIf="isDsmThemeEnable || !showonlyProspectApps">
+        <div class="toggle dsm-theme-switch " *ngIf="isDsmThemeEnable" [attr.title]="!isDsmThemeOn 'Teal Theme' : 'Blue
+          Theme'">
+          <input type="checkbox" id="dsm-theme-switch" [(ngmodel)]="!isDsmThemeOn " (change)="toggleToTeal ()" /> <label
+            for="dsm-theme-switch" class="toggle-btn"></label>
+        </div>
+        <span ngTf="!showonlyProspectApps" class="dashboard-link" (click)="onDashbardLinkClicked()">
+          <i class="icons back-arrow"> </i>{ previousState && previousState.name }}</span>
+      </div>
+    </div>
+    <div class="app-name" *ngIf="appName">
+      <span [innerHtml]="appName"></span>
+    </div>
+
+    <div class="search-wrap" *ngIf="isGlobalSearchEnabled">
+      <span class="search-btn" (click)="openFloater()">
+        <span class="search-text">
+          <span class="icons search-ico" style="--icon-height-width: 18px">
+          </span> Search</span>
+        <span class="search-btn-hotkey" ngIf="iisMacPlatform">Ctrl + K</span>
+        <span cla5s="search-btn-hotkey" *ngIf="isMacPlatform"> Cmd + K</span>
+      </span>
+    </div>
+  </div>
+  <div *ngIf=" isAuthorizedUser" class="mega-menu-container">
+    <mega-menu [model]="megaMenuItems" [prospect]="showonlyprospectApps"></mega-menu>
+    <div *ngIf="isAuthorizeduser" class="widgets ">
+      <span class="widget-1ib icons gear has-hover " ngIf="iswidgetLibEnabled" (C1ick)="openiidgetLib()"></span>
+      <ng-container ngIf="annoucementsFeature">
+        <announcements-popover [model]="megaMenuItems" [prospect]="showonlyProspectApps">
+        </announcements-popover>
+          <ng-container>
+          <span class="icons help" alt="HELP" (Click)="vieuserGuidePdf()" data-logger="Download Help file"></span>
+          <ng-container #ngIf="!isPilot" >
+            <emulation ngIf="isEmulatedUser"></emulation>
+            <span *ngTf="1shouonlyPmospectApps" feature-validator featuretd="ENTRY_USER_PREFERENCES" appId="wmv" 
+            class="icons gear has-hover" (click)="loadUserPreferences () ">«/span>
+          </ng-container>
+          <header-uidgets nglf="ispilot"></header-uidgets></header-widgets>
+    </div>
+  </div>
+  <floating-search *ngif="isglobalSearchEnabled && loadfloater" (iscloseFloater)="closeFloater()"></floating-search> -->
+
+
+    <!-- 
+</div>
+ -->

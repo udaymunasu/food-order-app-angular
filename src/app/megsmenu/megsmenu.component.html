@@ -1,0 +1,186 @@
+<!-- <div class="bny-megamenu" #rootlist>
+    <ng-container *ngIf="!isCollapseMegaMenu">
+        <ng-template ngFor let-category [ngForOf]="model">
+            <div #item 
+                class="bny-megamenu-item" (mouseenter)="calcNewNodePosition($event)">
+                <ng-container [ngTemplateOutlet]="routerLinkTemp">
+                </ng-container>
+            </div>
+        </ng-template>
+    </ng-container>
+    <ng-container *ngIf="isCollapseMegaMenu">
+        <div class="nav-icon">
+            <a class="bny-icons hamburger" [ngClass]="{ open: isMenuPanelvisible }"></a>
+        </div>
+    </ng-container>
+</div> -->
+
+
+<div class="mega-menu">
+    <ng-container class="mm-link" *ngFor="let mdl of megaData">
+        <div class="megamenu-item">
+            <span class="icon" [ngClass]="mdl.icon"></span>
+            <span class="mm-text" routerLink="/dashboard">{{mdl.label}}</span>
+        </div>
+    </ng-container>
+</div>
+
+<div #menupanel class="mega-menu-content">
+    <div class="mm-container">
+        <ng-container *ngFor="let model of megaData">
+            <div class="collapsed-mm-wrapper">
+                <ng-container *ngFor="let label of model.items">
+                    <div class="mm-text">{{label.label}}</div>
+                </ng-container>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+
+
+<!-- <ng-template #routerLinkTemp let-category="category">
+    <span *ngIf="!category.routerLink" [attr.target]="category.target" [attr.title]="category.title"
+        [attr.id]="category.id" [ngClass]="{ 'bny-mm-link' : true, 'ui-state-disabled' : category.disabled }"
+        [ngStyle]="category.style" [class]="category.styleclass">
+        <span *ngIf="category.icon" class="bny-icons"></span>
+        <span class="bny-mm-text"> some text</span>
+    </span>
+    <span ngIf="category.routerLink" [routerLink]="category.routerLink" [queryParams]="category.queryParams"
+        [routerLinkActivej="ui-state-active" [attr.target]="category.target" [attr.title]="category.title" |
+        [attr.id]="category.id" ngClass]="{ 'bny-mm-1ink' : true, 'ui-state-disabled': category.disabled }"
+        [ngstylej="category.style" [class]="category.styleclass">
+        <span *ngIf="category.icon" class="bny-icons"></span>
+        <span class="bny-mm-text" [innerHTML]="category.label "></span>
+    </span>
+</ng-template> -->
+
+
+
+
+<!-- <div class="bny-megamenu" #rootlist (mouseenter)="showPanel($event)" (mouseleave)="hidePanel()"
+    (click)="clickShow($event)">
+    <ng-container *ngIf="!isCollapseMegaMenu">
+        <ng-template ngFor let-category [ngForOf]="model">
+            <div #item [ngClass]="{'bny-megamenu-hide-menu-item': category.visible === false }"
+                class="bny-megamenu-item" (mouseenter)="calcNewNodePosition($event)">
+                <ng-container [ngTemplateOutlet]="routerLinkTemp">
+                </ng-container>
+            </div>
+        </ng-template>
+    </ng-container>
+    <ng-container *ngIf="isCollapseMegaMenu">
+        <div class="nav-icon">
+            <a class="bny-icons hamburger" [ngClass]="{ open: isMenuPanelvisible }"></a>
+        </div>
+    </ng-container>
+</div>
+
+<div #menupanel class="bny-negamenu-content" [ngClass]="{ 'hide-menu': !isMenuPanelvisible }"
+    (mouseenter)="showPanel($event)" (mouseleave)="hidePanel(false, true)" style="visibility: hidden">
+    <div class="mm-container">
+        <ng-container *ngIf="!isCollapseMegaMenu">
+            <ng-template ngFor let-category [ngForOf]="model">
+                <div class="mm-column" (mouseenter)="calcNewNodePosition($event)">
+                    <ng-template ngFor let-column [ngForOf]="model">
+                        <ng-container [ngTemplateOutlet]="routerLinkTemp">
+                        </ng-container>
+                    </ng-template>
+                </div>
+            </ng-template>
+        </ng-container>
+
+        <ng-container *ngIf="isCollapseMegaMenu">
+            <ng-container *ngFor="let mdl of model">
+                <div class="collapsed-mm-wrapper" (mouseenter)="hoverCollMMItem($event)">
+                    <div class="mm-model-ctn">
+                        <span class="bny-icons" [ngClass]="mdl.icon"></span>
+                        <span class="bny-mm-text">{{ mdl.label }}</span>
+                    </div>
+                    <div class="collapsed-links-ctn">
+                        <ng-template ngFor let-column [ngForOf]="mdl.items">
+                            <ng-container [ngTemplateOutlet]="routerLinkTemp"
+                                [ngTemplateOutletContext]="{ category: column }"> </ng-container>
+                        </ng-template>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+
+        <div class="anim-container animated" #aninCtn [ngClass]="{ bounce: isMenuPanelvisible }"
+            [ngClass]="{ name: '---mm-nav-hovered', value: nodeHovered }">
+        </div>
+    </div>
+</div>
+
+<ng-template #routerLinkTemp let-category="category">
+    <span *ngIf="!category.routerLink" [attr.target]="category.target" [attr.title]="category.title"
+        [attr.id]="category.id" (click)="itemClick($event, category)"
+        [ngClass]="{ 'bny-mm-link' : true, 'ui-state-disabled' : category.disabled }" [ngStyle]="category.style"
+        [class]="category.styleclass">
+        <span *ngIf="category.icon" class="bny-icons"></span>
+        <span class="bny-mm-text"> some text</span>
+    </span>
+    <span ngIf="category.routerLink" [routerLink]="category.routerLink" [queryParams]="category.queryParams"
+        [routerLinkActivej="ui-state-active" [attr.target]="category.target" [attr.title]="category.title" |
+        [attr.id]="category.id" (click)="itemClick($event, category)"
+        ngClass]="{ 'bny-mm-1ink' : true, 'ui-state-disabled': category.disabled }" [ngstylej="category.style"
+        [class]="category.styleclass">
+        <span *ngIf="category.icon" class="bny-icons"></span>
+        <span class="bny-mm-text" [innerHTML]="category.label "></span>
+    </span>
+</ng-template> -->
+
+<!-- 
+<div class="bny-megamenu" #rootlist (mouseenter)="showPanel($event)" (mouse leave)="hidePanel()" (click)="clickShow($event)">
+    <ng-container *ngIf="!isCollapseMegaMenu">
+        <ng-template ngFor let-category [ngForOf]="megaData">
+            <div #item class="bny-megamenu-item"
+                (mouseenter)="calcNewNodePosition($event)">
+                <ng-container [ngTemplateOutlet]="routerlinkTemp" [ngTemplateOutletContext]=" { category: category }"> </ng-container>
+            </div>
+        </ng-template>
+    </ng-container>
+    <ng-container *ngIf="lisCollapseMegaMenu">
+        <div class="nav-icon">
+            <span class="bny-icons hamburger" [ngClass]="{ open: isMenuPanelvisible }"></span>
+        </div>
+    </ng-container>
+</div>
+
+<div #menupanel class="bny-megamenu-content" [ngclass]="{ 'hide-menu': !isMenuPanelvisible }"
+    (mouseenter)="showPanel($event)" (mouseleave)="hidePanel(false, true)" style="visibility: hidden">
+    <div class="mm-container">
+        <ng-container *ngIf="!isCollapseMegaMenu">
+            <ng-template ngFor let-category [ngForOf]="megaData">
+                <div class="mm-column" *ngIf="category && category.items" (mouseenter)="calcNodePosition(event)">
+                    <ng-template ngFor let-column [ngForOf]="category.items">
+                        <ng-container [ngTemplateOutlet]="routerLinkTemp" [ngTemplateOutletContext]="category: column">
+                        </ng-container>
+                    </ng-template>
+                </div>
+            </ng-template>
+        </ng-container>
+
+        <ng-container *ngIf="isCollapseMegaMenu">
+            <ng-container *ngFor="let mdl of megaData">
+                <div class="collapsed-mm-wrapper" *ngIf="mdl.items && mdl.items.length & mdl.items.length"
+                    (mouseenter)="hoverColleItem($event)">
+                    <div class="mm-model-ctn">
+                        <span class="bny-icons" [ngClass]="mdl.icon" data-bny-test="ico-category"></span>
+                        <span class="bny-mm-text">{{ mdl.label }}</span>
+                    </div>
+                    <div class="collapsed-links-ctn">
+                        <ng-template ngFor let-column [ngForOf]="md1.items">
+                            <ng-container [ngTemplateOutlet]="routerLinkTemp"
+                                [ngTemplateOutletContext]="{ category: column }"> </ng-container>
+                        </ng-template>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+
+        <div class="anim-container animated" #aninCtn [ngClass]="{ bounce: isMenuPanelvisible }"
+         [cssOverride]="{ name: '---mm-nav-hovered', value: nodeHovered }"></div>
+    </div>
+</div> -->
